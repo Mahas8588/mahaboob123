@@ -17,6 +17,19 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
+  
+  <distributionManagement>
+	  <repository>
+		  <id>mahas-repo</id>
+		  <url>http://3.145.57.237:8081/repository/mahas-repo/</url>
+		  <layout>default</layout>
+		  <releases>
+			  <enabled>true</enabled>
+			  <updatePolicy>always</updatePolicy>
+			  <checksumPolicy>warn</checksumPolicy>
+			  </releases>
+		  </repository>  
+    </distributionManagement>
 
   <dependencies>
     <dependency>
@@ -31,6 +44,11 @@
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <plugin>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>3.3.0.603</version>
+        </plugin>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
