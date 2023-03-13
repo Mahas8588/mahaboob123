@@ -29,7 +29,7 @@ pipeline{
         
         steps{
                 script{
-                     withSonarQubeEnv(credentialsId: 'sonar-token') {
+                     withSonarQubeEnv(credentialsId: 'sonar-cred') {
                      def mavenHome = tool name: "Maven-3.9.0", type: "maven"
                      def mavenCMD = "${mavenHome}/bin/mvn"
                      sh "${mavenCMD} sonar:sonar"
@@ -50,7 +50,7 @@ pipeline{
                            type: 'jar'
                            ]
                            ], 
-                           credentialsId: 'nexus-credentials', 
+                           credentialsId: 'nexus-cred', 
                            groupId: 'name', 
                            nexusUrl: '3.145.57.237:8081/', 
                            nexusVersion: 'nexus3', 
